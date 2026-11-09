@@ -3,36 +3,52 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#101110">
-  <meta name="description" content="Accesorios con carácter. Explora relojes, gorras y más en Kevin Store.">
-  <title>Kevin Store — Accesorios con carácter</title>
+  <meta name="theme-color" content="#141414">
+  <meta name="description" content="Relojes y accesorios seleccionados para acompañar tu estilo. Descubre Kevin Store y pide por WhatsApp.">
+  <title>Kevin Store — Estilo en cada detalle</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="config.js"></script>
-  <script defer src="app.js"></script>
+  <link rel="stylesheet" href="styles.css?v=20261024-01">
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="config.js?v=20261023-10"></script>
+  <script defer src="app.js?v=20261024-01"></script>
 </head>
 <body>
+  <section class="welcome-screen open" id="welcome-screen" role="dialog" aria-modal="true" aria-labelledby="welcome-title" aria-hidden="false">
+    <div class="welcome-glows" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="welcome-content"><img class="welcome-logo" src="kevin-store-logo.png" width="1024" height="1024" alt="Logotipo de Kevin Store Accesorios" fetchpriority="high"><p class="welcome-kicker">KEVIN STORE · ACCESORIOS</p><h2 id="welcome-title">Tu estilo.<br><em>Tu sello.</em></h2><p class="welcome-message">Encuentra ese detalle que habla por ti.</p><button id="welcome-enter" class="button button-dark welcome-enter">Entrar a la tienda <span aria-hidden="true">↗</span></button></div>
+  </section>
   <div class="announcement">ENVÍOS A TODO COLOMBIA <span>·</span> PEDIDOS DIRECTOS POR WHATSAPP</div>
   <header class="header">
     <a class="brand" href="#inicio" aria-label="Kevin Store, inicio"><span class="brand-mark">K</span><span>KEVIN<span class="brand-light">STORE</span></span></a>
-    <nav class="nav"><a href="#catalogo">Catálogo</a><a href="#nosotros">Nosotros</a></nav>
-    <div class="header-actions"><button class="icon-button admin-link" id="admin-open" aria-label="Administrar tienda" title="Administrar">⌘</button><button class="cart-button" id="cart-open">Bolsa <span id="cart-count">0</span></button><button class="menu-button" id="menu-toggle" aria-label="Abrir menú">☰</button></div>
+    <nav class="nav" aria-label="Navegación principal"><a href="#catalogo">Catálogo</a><a href="#nosotros">Nosotros</a></nav>
+    <div class="header-actions"><button class="icon-button admin-link" id="admin-open" aria-label="Administrar tienda" title="Administrar">⌘</button><button class="cart-button" id="cart-open" aria-label="Abrir bolsa">Bolsa <span id="cart-count" aria-live="polite">0</span></button><button class="menu-button" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button></div>
   </header>
   <main>
-    <section class="hero" id="inicio"><div class="hero-copy"><p class="eyebrow"><span></span> ACCESORIOS PARA TODOS LOS DÍAS</p><h1>Tu estilo.<br><em>Sin pedir permiso.</em></h1><p class="hero-text">Detalles que hablan por ti. Encuentra esa pieza que completa tu forma de ver el mundo.</p><a href="#catalogo" class="button button-dark">Explorar colección <span>↘</span></a><div class="hero-note"><span class="note-line"></span><span>HECHO PARA DESTACAR</span></div></div><div class="hero-art"><div class="hero-photo"><div class="photo-label">DROP<br><b>01 / 26</b></div><div class="hero-stamp">K<br><small>STUDIO</small></div></div><div class="hero-caption"><span>ACCESORIOS ESENCIALES</span><span>01 — 03</span></div></div></section>
-    <section class="ticker"><div>KEVIN STORE <b>✳</b> RITMO PROPIO <b>✳</b> DETALLES QUE IMPORTAN <b>✳</b> KEVIN STORE <b>✳</b> RITMO PROPIO <b>✳</b></div></section>
-    <section class="catalog section" id="catalogo"><div class="section-head"><div><p class="eyebrow">SELECCIÓN KEVIN STORE</p><h2>Piezas con <em>actitud.</em></h2></div><p class="section-desc">Diseñadas para acompañarte, desde el primer café hasta el último plan.</p></div>
-      <div class="toolbar"><div class="filters" id="category-filters"><button class="filter active" data-category="Todos">Todo <span>00</span></button><button class="filter" data-category="Relojes">Relojes <span>00</span></button><button class="filter" data-category="Gorras">Gorras <span>00</span></button><button class="filter" data-category="Audífonos">Audífonos <span>00</span></button></div><div class="search-sort"><label class="search"><span>⌕</span><input id="search-input" type="search" placeholder="Buscar pieza…" aria-label="Buscar producto"></label><select id="sort-select" aria-label="Ordenar productos"><option value="featured">Destacados</option><option value="price-asc">Menor precio</option><option value="price-desc">Mayor precio</option></select></div></div>
-      <div class="product-grid" id="product-grid" aria-live="polite"></div><p class="empty-state" id="empty-state" hidden>No encontramos productos con esos filtros.</p>
+    <section class="hero" id="inicio">
+      <div class="hero-copy"><p class="eyebrow"><span></span> ACCESORIOS PARA TU DÍA A DÍA</p><h1>Tu estilo.<br><em>En cada detalle.</em></h1><p class="hero-text">Relojes y piezas con personalidad para acompañarte en cada plan. Elige tu favorito y haz tu pedido por WhatsApp.</p><a href="#catalogo" class="button button-dark">Ver catálogo <span>↘</span></a><div class="hero-note"><span class="note-line"></span><span>ESTILO A TU MANERA</span></div></div>
+      <div class="hero-art"><div class="cube-scene" id="cube-scene" aria-label="Galería de productos Kevin Store"><div class="cube" id="product-cube"></div></div><div class="cube-dots" id="cube-dots" aria-label="Elegir cara del cubo"></div><div class="hero-caption"><span>DESCUBRE LA COLECCIÓN</span><span>KEVIN STORE</span></div></div>
     </section>
-    <section class="manifesto" id="nosotros"><div class="manifesto-mark">K</div><div><p class="eyebrow">UNA FORMA DE SER</p><h2>Menos ruido.<br><em>Más personalidad.</em></h2></div><div class="manifesto-copy"><p>Kevin Store nace para quienes saben que el estilo está en los detalles. Seleccionamos piezas versátiles, con diseño y hechas para durar en tu rutina.</p><a href="#catalogo" class="text-link">Encuentra la tuya <span>↗</span></a></div></section>
+    <section class="ticker" aria-label="Estilo propio, detalles que importan"><div>ESTILO PROPIO <b>✳</b> DETALLES QUE IMPORTAN <b>✳</b> TU RITMO, TU ELECCIÓN <b>✳</b> ESTILO PROPIO <b>✳</b> DETALLES QUE IMPORTAN <b>✳</b></div></section>
+    <section class="catalog section" id="catalogo"><div class="section-head"><div><p class="eyebrow">DESCUBRE KEVIN STORE</p><h2>Elige tu próximo <em>favorito.</em></h2></div><p class="section-desc">Piezas seleccionadas para sumar personalidad a tu día.</p></div>
+      <div class="toolbar"><div class="filters" id="category-filters" aria-label="Filtrar por categoría"></div><div class="search-sort"><label class="search"><span>⌕</span><input id="search-input" type="search" placeholder="Buscar pieza…" aria-label="Buscar producto"></label><select id="availability-filter" aria-label="Filtrar disponibilidad"><option value="all">Toda disponibilidad</option><option value="Disponible">Disponible</option><option value="Bajo pedido">Bajo pedido</option></select><select id="sort-select" aria-label="Ordenar productos"><option value="featured">Destacados</option><option value="price-asc">Precio: menor a mayor</option><option value="price-desc">Precio: mayor a menor</option><option value="name-asc">Nombre: A-Z</option></select></div></div>
+      <div class="price-filters"><label>Precio desde <input id="min-price" type="number" inputmode="numeric" min="0" placeholder="$0" aria-label="Precio mínimo"></label><label>Precio hasta <input id="max-price" type="number" inputmode="numeric" min="0" placeholder="Sin límite" aria-label="Precio máximo"></label></div>
+      <p class="coming-soon" id="coming-soon" hidden></p>
+      <div class="product-grid" id="product-grid" aria-live="polite" aria-busy="true"></div><div class="empty-state" id="empty-state" hidden><p></p><button type="button" class="text-link" id="clear-filters">Quitar filtros</button><button type="button" class="text-link" id="retry-catalog" hidden>Reintentar</button></div>
+    </section>
+    <section class="how-to-buy section" aria-labelledby="how-title"><div class="section-head"><div><p class="eyebrow">UNA COMPRA SENCILLA</p><h2 id="how-title">¿Cómo <em>comprar?</em></h2></div><p class="section-desc">Te acompañamos por WhatsApp para coordinar cada detalle.</p></div><ol class="buy-steps"><li><b>01</b><h3>Elige tu pieza</h3><p>Explora el catálogo y revisa fotos, precio y disponibilidad.</p></li><li><b>02</b><h3>Escríbeme por WhatsApp</h3><p>Confirma el producto y comparte tu nombre y zona de entrega.</p></li><li><b>03</b><h3>Coordina la entrega</h3><p>Te confirmo disponibilidad, entrega y forma de pago antes de cerrar el pedido.</p></li></ol><p class="policy-note">Antes de comprar, consulta por WhatsApp las condiciones aplicables de garantía y cambios.</p></section>
+    <section class="manifesto" id="nosotros"><div class="manifesto-mark">K</div><div><p class="eyebrow">UNA FORMA DE SER</p><h2>Menos ruido.<br><em>Más personalidad.</em></h2></div><div class="manifesto-copy"><p>En Kevin Store creemos que un buen detalle puede cambiar cómo te sientes. Reunimos piezas para expresar tu estilo, a tu manera.</p><a href="#catalogo" class="text-link">Explora la colección <span>↗</span></a></div></section>
   </main>
-  <footer class="footer"><a class="brand footer-brand" href="#inicio"><span class="brand-mark">K</span><span>KEVIN<span class="brand-light">STORE</span></span></a><p>Accesorios con carácter. <span>© <span id="year"></span> KEVIN STORE</span></p><a href="#catalogo">Volver arriba ↑</a></footer>
+  <footer class="footer"><a class="brand footer-brand" href="#inicio"><span class="brand-mark">K</span><span>KEVIN<span class="brand-light">STORE</span></span></a><p>Tu estilo, en cada detalle. <span>© <span id="year"></span> KEVIN STORE</span></p><a href="#inicio">Volver arriba ↑</a></footer>
   <div class="overlay" id="overlay"></div>
-  <aside class="drawer" id="cart-drawer" aria-label="Tu bolsa de compras" aria-hidden="true"><div class="drawer-head"><div><p class="eyebrow">TU SELECCIÓN</p><h2>Tu bolsa <span id="drawer-count">(0)</span></h2></div><button class="close-button" data-close aria-label="Cerrar">×</button></div><div class="cart-items" id="cart-items"></div><div class="cart-bottom"><div class="total-row"><span>Subtotal</span><b id="cart-total">$0</b></div><p class="small-note">El envío se coordina al confirmar tu pedido.</p><button class="button button-dark checkout" id="checkout">Pedir por WhatsApp <span>↗</span></button></div></aside>
-  <section class="modal" id="admin-modal" aria-hidden="true"><button class="close-button modal-close" data-close aria-label="Cerrar">×</button><div id="admin-content"></div></section>
+  <aside class="drawer" id="cart-drawer" aria-label="Tu bolsa de compras" aria-hidden="true"><div class="drawer-head"><div><p class="eyebrow">TU SELECCIÓN</p><h2>Tu bolsa <span id="drawer-count">(0)</span></h2></div><button class="close-button" data-close aria-label="Cerrar bolsa">×</button></div><div class="cart-items" id="cart-items"></div><div class="cart-bottom"><div class="total-row"><span>Total</span><b id="cart-total">$0</b></div><p class="small-note">Confirma disponibilidad y coordina la entrega por WhatsApp.</p><button class="clear-cart" id="clear-cart" type="button">Vaciar bolsa</button><button class="button button-dark checkout" id="checkout">Enviar pedido por WhatsApp <span>↗</span></button></div></aside>
+  <section class="modal" id="admin-modal" aria-hidden="true"><button class="close-button modal-close" data-close aria-label="Cerrar administración">×</button><div id="admin-content"></div></section>
+  <section class="product-modal" id="product-modal" role="dialog" aria-modal="true" aria-label="Detalles del producto" aria-hidden="true" tabindex="-1"><button class="close-button product-modal-close" data-close aria-label="Cerrar detalles">×</button><div id="product-modal-content"></div></section>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <a class="floating-whatsapp" id="floating-whatsapp" href="#" target="_blank" rel="noopener" aria-label="Escribir a Kevin Store por WhatsApp" hidden>WhatsApp <span aria-hidden="true">↗</span></a>
 </body>
 </html>
+
+
+
