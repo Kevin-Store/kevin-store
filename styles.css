@@ -69,7 +69,7 @@ body{font-size:15px}
 .button,.filter,.product-admin-actions button,.cart-button,.quick-add,.close-button,.quantity button,.remove-item{min-height:44px}
 .drawer{padding-bottom:calc(30px + env(safe-area-inset-bottom))}
 @media(max-width:700px){.buy-steps{grid-template-columns:1fr;gap:10px}.buy-steps li{padding:14px 2px}.buy-steps h3{margin:7px 0}.floating-whatsapp{right:calc(12px + env(safe-area-inset-right));bottom:calc(12px + env(safe-area-inset-bottom));min-height:50px}.product-description{font-size:13px}.product-title{font-size:14px}}
-@media(min-width:701px){.floating-whatsapp{display:none}}
+/* floating WhatsApp now always available */
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
 
 /* Bienvenida con la identidad visual enviada por Kevin */
@@ -113,3 +113,165 @@ body.welcome-open{overflow:hidden}
 .quality-pill{display:inline-flex;align-items:center;gap:5px;min-height:34px;padding:6px 13px;border:1px solid #c49f58;border-radius:999px;background:#302719;color:#f1d89f;font-size:12px;letter-spacing:.03em}
 .quality-pill b{font-weight:700;color:#fff0c4}
 .product-detail-description{margin-top:18px;white-space:pre-line}
+
+
+/* ===== Sección Envíos y Pagos ===== */
+.policies {
+  background: #f3efe6;
+  padding-top: 80px;
+  padding-bottom: 90px;
+}
+.policies-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 8px;
+}
+.policy-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 28px 24px;
+  border-radius: 4px;
+}
+.policy-icon {
+  font-size: 22px;
+  margin-bottom: 14px;
+}
+.policy-card h3 {
+  font: 600 16px var(--display);
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.policy-card p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0;
+}
+@media (max-width: 850px) {
+  .policies-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .policies {
+    padding-top: 60px;
+    padding-bottom: 70px;
+  }
+}
+
+
+/* ===== Trust strip ===== */
+.trust-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px 32px;
+  padding: 16px 6%;
+  background: #141414;
+  color: #f0e9d8;
+  font-size: 12px;
+  letter-spacing: .04em;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.trust-item span {
+  font-size: 15px;
+}
+
+/* ===== Testimonials / Social proof ===== */
+.social-proof {
+  background: #f7f4ed;
+}
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 8px;
+}
+.testimonial-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 24px 22px;
+  border-radius: 4px;
+}
+.testimonial-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #4a4e48;
+  margin: 0 0 16px;
+  font-style: italic;
+}
+.testimonial-author {
+  font-size: 12px;
+  color: #8a7340;
+  margin: 0;
+  font-weight: 600;
+}
+.cities-note {
+  margin: 28px 0 0;
+  text-align: center;
+  font-size: 14px;
+  color: var(--muted);
+}
+.cities-note b {
+  color: var(--ink);
+}
+
+/* ===== Floating WhatsApp always visible on mobile ===== */
+.floating-whatsapp {
+  position: fixed;
+  right: calc(14px + env(safe-area-inset-right));
+  bottom: calc(14px + env(safe-area-inset-bottom));
+  z-index: 25;
+  min-height: 52px;
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  padding: 0 18px;
+  background: #141414;
+  color: #fff;
+  border: 1px solid var(--gold);
+  text-decoration: none;
+  font: 600 13px var(--font);
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+  border-radius: 999px;
+}
+.floating-whatsapp[hidden] {
+  display: none !important;
+}
+.floating-whatsapp span {
+  color: #d1ad68;
+  font-size: 16px;
+}
+
+/* On desktop keep it subtle but available; on mobile make it very visible */
+@media (min-width: 701px) {
+  .floating-whatsapp {
+    /* keep visible but smaller / less intrusive if preferred */
+    min-height: 48px;
+    font-size: 12px;
+  }
+}
+@media (max-width: 700px) {
+  .floating-whatsapp {
+    right: calc(12px + env(safe-area-inset-right));
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    min-height: 52px;
+    padding: 0 16px;
+    font-size: 13px;
+  }
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .trust-strip {
+    gap: 12px 18px;
+    padding: 14px 5%;
+    font-size: 11px;
+  }
+}
